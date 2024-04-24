@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckucqn1nq1gyt"
+path="res://.godot/imported/Walking Through the Day Dream V2.wav-76cc9e0225ec1e38f3bcd2ac80f397af.sample"
+
+[deps]
+
+source_file="res://assets/sound/Stage/Walking Through the Day Dream V2.wav"
+dest_files=["res://.godot/imported/Walking Through the Day Dream V2.wav-76cc9e0225ec1e38f3bcd2ac80f397af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

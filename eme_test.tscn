@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://ny7wpyqhu1nb"]
+
+[ext_resource type="Script" path="res://EmeTest.gd" id="1_f2ito"]
+[ext_resource type="Texture2D" uid="uid://l8e0xp0w6b01" path="res://assets/eme/Eme_Test_Down.png" id="2_vr0rj"]
+[ext_resource type="Texture2D" uid="uid://cadwvse4cgesp" path="res://assets/eme/Eme_Test.png" id="3_hx24x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqetc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vr0rj")
+}],
+"loop": false,
+"name": &"Knock Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hx24x")
+}],
+"loop": true,
+"name": &"Stand",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18cjm"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f13x"]
+size = Vector2(25, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn8mj"]
+size = Vector2(23, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gulmo"]
+radius = 74.3303
+
+[node name="EmeTest" type="CharacterBody2D"]
+script = ExtResource("1_f2ito")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_sqetc")
+animation = &"Knock Down"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_18cjm")
+
+[node name="player hit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player hit"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_6f13x")
+
+[node name="owwie zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="owwie zone"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_pn8mj")
+metadata/_edit_lock_ = true
+
+[node name="player decction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player decction"]
+shape = SubResource("CircleShape2D_gulmo")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="player hit" to="." method="_on_player_hit_area_entered"]
+[connection signal="body_entered" from="player hit" to="." method="_on_player_hit_body_entered"]
+[connection signal="body_entered" from="owwie zone" to="." method="_on_owwie_zone_body_entered"]
+[connection signal="body_entered" from="player decction" to="." method="_on_player_decction_body_entered"]
+[connection signal="body_exited" from="player decction" to="." method="_on_player_decction_body_exited"]
