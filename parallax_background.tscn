@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://df2o2ele13ymi"]
+
+[ext_resource type="Script" path="res://parallax_background.gd" id="1_jyula"]
+[ext_resource type="Texture2D" uid="uid://bl1wap2c8n8d3" path="res://assets/World/Whitebg.png" id="1_kq1dw"]
+[ext_resource type="Texture2D" uid="uid://b6jjmno7v3hq" path="res://assets/World/KidLine.png" id="2_tjnhy"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_jyula")
+metadata/_edit_vertical_guides_ = [1154.0]
+
+[node name="Whitebg" type="Sprite2D" parent="."]
+position = Vector2(667, 319)
+texture = ExtResource("1_kq1dw")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1150, 0)
+
+[node name="KidLine" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(571, 391)
+scale = Vector2(0.597222, 0.597222)
+texture = ExtResource("2_tjnhy")

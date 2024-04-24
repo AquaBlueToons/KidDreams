@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cykrct8dmwq7h"]
+
+[ext_resource type="Script" path="res://Ballv3.gd" id="1_g30mg"]
+[ext_resource type="Texture2D" uid="uid://dup3yi25xube3" path="res://assets/Player/Obj_Ball.png" id="2_lrmrm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k32n"]
+radius = 30.4138
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uxer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lrmrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ball" type="CharacterBody2D"]
+script = ExtResource("1_g30mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_7k32n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_5uxer")
+metadata/_edit_lock_ = true
